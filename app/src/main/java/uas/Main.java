@@ -2,7 +2,7 @@ package uas;
 
 import uas.model.*;
 import uas.utils.*;
-import uas.item.*;
+// import uas.item.*;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -10,9 +10,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Player player = new Player("Hero", 100, 50);
         Random random = new Random();
-
+        Player player = new Player("Hero", 100, 0); // random attack power
         System.out.println("Selamat datang di Game Petualangan!");
 
         boolean gameOver = false;
@@ -26,7 +25,7 @@ public class Main {
 
             if (choice == 1) {
                 // Musuh muncul secara acak
-                Enemy enemy = new Enemy("Goblin", random.nextInt(50) + 50, 10);
+                Enemy enemy = new Enemy("Goblin", random.nextInt(50) + 50, random.nextInt(41) + 30); // random health and attack power (namun belum fix)
                 System.out.println("\nAnda bertemu musuh: " + enemy.getName());
 
                 while (player.getHealth() > 0 && enemy.getHealth() > 0) {
@@ -55,7 +54,8 @@ public class Main {
 
                     } else if (enemy.getHealth() <= 0) {
                         System.out.println("Anda mengalahkan musuh!");
-                        player.addItem();
+                        player.addItem(); // Tambah item setiap kali menang
+                        // 
                     }
                 }
 
@@ -66,5 +66,6 @@ public class Main {
                 gameOver = true;
             }
         }
+        scanner.close();
     }
 }

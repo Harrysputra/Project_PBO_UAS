@@ -19,11 +19,30 @@ public class Player extends Character {
         inventory.add(new Elixir());
     }
 
+    // public void attack(Character target) {
+    //     System.out
+    //             .println("\n" + getName() + " menyerang " + target.getName() + " dengan kekuatan " + getAttackPower());
+    //     target.takeDamage(getAttackPower());
+    //     gainXP(40); // Tambah XP setiap kali menyerang
+    // }
+
     public void attack(Character target) {
-        System.out
-                .println("\n" + getName() + " menyerang " + target.getName() + " dengan kekuatan " + getAttackPower());
-        target.takeDamage(getAttackPower());
-        gainXP(40); // Tambah XP setiap kali menyerang
+        Random random = new Random();
+        int currentAttackPower = random.nextInt(51) + 50; // Attack power acak antara 50-99 setiap serangan
+        target.takeDamage(currentAttackPower);
+
+        int xpGained;
+        if (target.getHealth() > 50) {
+            xpGained = 50;
+        } else {
+            xpGained = 20;
+        }
+        gainXP(xpGained);
+
+        System.out.println("\n" + getName() + " menyerang " + target.getName() +
+                " dengan kekuatan " + currentAttackPower +
+                " | XP yang diperoleh: " + xpGained +
+                " | Total XP: " + xp);
     }
 
     public void addItem() {
@@ -48,15 +67,19 @@ public class Player extends Character {
     }
 
     private void gainXP(int amount) {
-        xp += amount;
-        if (xp >= 100) {
+        xp += amount; // Tambah XP ke total
+        if (xp >= 100) { // Cek jika XP lebih dari 100 untuk naik level
             levelUp();
         }
     }
 
+    // public void showXP() {
+    //     System.out.println("XP saat ini: " + xp);
+    // }
+
     private void levelUp() {
-        xp = 0;
-        level++;
+        xp = 0; // Reset XP setelah naik level
+        level++; // Naikkan level
         System.out.println("Horee!!! Selamat! " + getName() + " naik ke level " + level + "!");
     }
 
