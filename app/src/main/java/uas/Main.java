@@ -25,7 +25,8 @@ public class Main {
 
             if (choice == 1) {
                 // Musuh muncul secara acak
-                Enemy enemy = new Enemy("Goblin", random.nextInt(50) + 50, random.nextInt(41) + 30); // random health and attack power (namun belum fix)
+                Enemy enemy = new Enemy("Goblin", random.nextInt(70) + 30, random.nextInt(41) + 30); // random health
+                                                                                                     // and attack power (namun belum fix)
                 System.out.println("\nAnda bertemu musuh: " + enemy.getName());
 
                 while (player.getHealth() > 0 && enemy.getHealth() > 0) {
@@ -55,7 +56,7 @@ public class Main {
                     } else if (enemy.getHealth() <= 0) {
                         System.out.println("Anda mengalahkan musuh!");
                         player.addItem(); // Tambah item setiap kali menang
-                        // 
+                        //
                     }
                 }
 

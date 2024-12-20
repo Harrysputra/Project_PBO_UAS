@@ -28,14 +28,14 @@ public class Player extends Character {
 
     public void attack(Character target) {
         Random random = new Random();
-        int currentAttackPower = random.nextInt(51) + 50; // Attack power acak antara 50-99 setiap serangan
+        int currentAttackPower = random.nextInt(51) + 50; // Attack power acak setiap serangan
         target.takeDamage(currentAttackPower);
 
         int xpGained;
         if (target.getHealth() > 50) {
-            xpGained = 50;
+            xpGained = 70;
         } else {
-            xpGained = 20;
+            xpGained = 40;
         }
         gainXP(xpGained);
 
