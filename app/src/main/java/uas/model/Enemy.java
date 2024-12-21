@@ -10,7 +10,7 @@ public class Enemy extends Character {
     }
 
     public void attack(Character target) {
-        int damage = random.nextInt(getAttackPower()) + 1; // Damage acak
+        int damage = random.nextInt(getAttackPower()); // Damage acak
         System.out.println(getName() + " menyerang " + target.getName() + " dengan kekuatan " + damage + "\n");
         target.takeDamage(damage);
     }

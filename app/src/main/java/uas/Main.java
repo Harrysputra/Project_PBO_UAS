@@ -10,8 +10,8 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
-        Player player = new Player("Hero", 100, 0); // random attack power
+        // Player player = new Player("Hero", 100, 80); // random attack power
+        Player player = new Player("Hero", 100, 0);
         System.out.println("Selamat datang di Game Petualangan!");
 
         boolean gameOver = false;
@@ -25,9 +25,12 @@ public class Main {
 
             if (choice == 1) {
                 // Musuh muncul secara acak
-                Enemy enemy = new Enemy("Goblin", random.nextInt(70) + 30, random.nextInt(41) + 30); // random health
-                                                                                                     // and attack power (namun belum fix)
+                Random random = new Random();
+                Enemy enemy = new Enemy("Goblin", random.nextInt(50) + 50, random.nextInt(41) + 10); // random health
+                                                                                                     // and attack power
                 System.out.println("\nAnda bertemu musuh: " + enemy.getName());
+                //
+                //
 
                 while (player.getHealth() > 0 && enemy.getHealth() > 0) {
                     GameUtils.printCharacterStatus(player, enemy);

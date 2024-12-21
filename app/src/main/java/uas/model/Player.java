@@ -19,31 +19,31 @@ public class Player extends Character {
         inventory.add(new Elixir());
     }
 
-    // public void attack(Character target) {
-    //     System.out
-    //             .println("\n" + getName() + " menyerang " + target.getName() + " dengan kekuatan " + getAttackPower());
-    //     target.takeDamage(getAttackPower());
-    //     gainXP(40); // Tambah XP setiap kali menyerang
-    // }
+//    public void attack(Character target) {
+//        System.out
+//                .println("\n" + getName() + " menyerang " + target.getName() + " dengan kekuatan " + getAttackPower());
+//        target.takeDamage(getAttackPower());
+//        gainXP(40); // Tambah XP setiap kali menyerang
+//    }
 
-    public void attack(Character target) {
-        Random random = new Random();
-        int currentAttackPower = random.nextInt(51) + 50; // Attack power acak setiap serangan
-        target.takeDamage(currentAttackPower);
+     public void attack(Character target) {
+         Random random = new Random();
+         int currentAttackPower = random.nextInt(51) + 50; // Attack power acak setiap serangan
+         target.takeDamage(currentAttackPower);
 
-        int xpGained;
-        if (target.getHealth() > 50) {
-            xpGained = 70;
-        } else {
-            xpGained = 40;
-        }
-        gainXP(xpGained);
+         int xpGained;
+         if (target.getHealth() > 50) {
+             xpGained = 70;
+         } else {
+             xpGained = 40;
+         }
+         gainXP(xpGained);
 
-        System.out.println("\n" + getName() + " menyerang " + target.getName() +
-                " dengan kekuatan " + currentAttackPower +
-                " | XP yang diperoleh: " + xpGained +
-                " | Total XP: " + xp);
-    }
+         System.out.println("\n" + getName() + " menyerang " + target.getName() +
+                 " dengan kekuatan " + currentAttackPower +
+                 " | XP yang diperoleh: " + xpGained +
+                 " | Total XP: " + xp);
+     }
 
     public void addItem() {
         Random random = new Random();
