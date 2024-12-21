@@ -12,6 +12,7 @@ public class Player extends Character {
     private List<Item> inventory = new ArrayList<>();
 
 
+    // constructor item
     public Player(String name, int health, int attackPower) {
         super(name, health, attackPower);
         inventory.add(new Potion());
@@ -19,41 +20,44 @@ public class Player extends Character {
         inventory.add(new Elixir());
     }
 
-//    public void attack(Character target) {
-//        System.out
-//                .println("\n" + getName() + " menyerang " + target.getName() + " dengan kekuatan " + getAttackPower());
-//        target.takeDamage(getAttackPower());
-//        gainXP(40); // Tambah XP setiap kali menyerang
-//    }
+    // public void attack(Character target) {
+    //     System.out
+    //             .println("\n" + getName() + " menyerang " + target.getName() + " dengan kekuatan " + getAttackPower());
+    //     target.takeDamage(getAttackPower());
+    //     gainXP(40); // Tambah XP setiap kali menyerang
+    // }
 
-     public void attack(Character target) {
-         Random random = new Random();
-         int currentAttackPower = random.nextInt(51) + 50; // Attack power acak setiap serangan
-         target.takeDamage(currentAttackPower);
+    public void attack(Character target) {
+        Random random = new Random();
+        int attackPower = random.nextInt(51) + 50; // Attack power acak setiap serangan
+        target.takeDamage(attackPower);
 
-         int xpGained;
-         if (target.getHealth() > 50) {
-             xpGained = 70;
-         } else {
-             xpGained = 40;
-         }
-         gainXP(xpGained);
+        int xpGained;
+        if (target.getHealth() > 50) {
+            xpGained = 70;
+        } else {
+            xpGained = 40;
+        }
+        gainXP(xpGained);
 
-         System.out.println("\n" + getName() + " menyerang " + target.getName() +
-                 " dengan kekuatan " + currentAttackPower +
-                 " | XP yang diperoleh: " + xpGained +
-                 " | Total XP: " + xp);
-     }
+        System.out.println("\n" + getName() + " menyerang " + target.getName() +
+                " dengan kekuatan " + attackPower +
+                " | XP yang diperoleh: " + xpGained +
+                " | Total XP: " + xp + "");
+    }
 
     public void addItem() {
-        Random random = new Random();
+        Random random = new Random(); // 
         int randomItem = random.nextInt(3);
         if (randomItem == 0) {
                 inventory.get(0).addJumlah();
+                System.out.println("Anda mendapatkan " + inventory.get(0).getName() + "!");
             } else if (randomItem == 1) {
                 inventory.get(1).addJumlah();
+                System.out.println("Anda mendapatkan " + inventory.get(1).getName() + "!");
             } else {
                 inventory.get(2).addJumlah();
+                System.out.println("Anda mendapatkan " + inventory.get(2).getName() + "!"); // untuk menampilkan item yang didapat setiap hero menang
             }
     }
 
