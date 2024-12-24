@@ -11,7 +11,6 @@ public class Player extends Character {
     private int level = 1;
     private List<Item> inventory = new ArrayList<>();
 
-
     // constructor item
     public Player(String name, int health, int attackPower) {
         super(name, health, attackPower);
@@ -21,15 +20,16 @@ public class Player extends Character {
     }
 
     // public void attack(Character target) {
-    //     System.out
-    //             .println("\n" + getName() + " menyerang " + target.getName() + " dengan kekuatan " + getAttackPower());
-    //     target.takeDamage(getAttackPower());
-    //     gainXP(40); // Tambah XP setiap kali menyerang
-    // }
+    // System.out
+    // .println("\n" + getName() + " menyerang " + target.getName() + " dengan
+    // kekuatan " + getAttackPower());
+    // target.takeDamage(getAttackPower());
+    // gainXP(40); // Tambah XP setiap kali menyerang
+    // } // method attack yang lama
 
     public void attack(Character target) {
         Random random = new Random();
-        int attackPower = random.nextInt(51) + 50; // Attack power acak setiap serangan
+        int attackPower = random.nextInt(21) + 40; // Attack power acak setiap serangan
         target.takeDamage(attackPower);
 
         int xpGained;
@@ -47,18 +47,19 @@ public class Player extends Character {
     }
 
     public void addItem() {
-        Random random = new Random(); // 
+        Random random = new Random(); //
         int randomItem = random.nextInt(3);
         if (randomItem == 0) {
-                inventory.get(0).addJumlah();
-                System.out.println("Anda mendapatkan " + inventory.get(0).getName() + "!");
-            } else if (randomItem == 1) {
-                inventory.get(1).addJumlah();
-                System.out.println("Anda mendapatkan " + inventory.get(1).getName() + "!");
-            } else {
-                inventory.get(2).addJumlah();
-                System.out.println("Anda mendapatkan " + inventory.get(2).getName() + "!"); // untuk menampilkan item yang didapat setiap hero menang
-            }
+            inventory.get(0).addJumlah();
+            System.out.println("Anda mendapatkan " + inventory.get(0).getName() + "!");
+        } else if (randomItem == 1) {
+            inventory.get(1).addJumlah();
+            System.out.println("Anda mendapatkan " + inventory.get(1).getName() + "!");
+        } else {
+            inventory.get(2).addJumlah();
+            System.out.println("Anda mendapatkan " + inventory.get(2).getName() + "!"); // untuk menampilkan item yang
+                                                                                        // didapat setiap hero menang
+        }
     }
 
     public void showInventory() {
@@ -76,10 +77,6 @@ public class Player extends Character {
             levelUp();
         }
     }
-
-    // public void showXP() {
-    //     System.out.println("XP saat ini: " + xp);
-    // }
 
     private void levelUp() {
         xp = 0; // Reset XP setelah naik level
