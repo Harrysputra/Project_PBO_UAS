@@ -10,10 +10,9 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        // Player player = new Player("Hero", 100, 80); // random attack power
-        Player player = new Player("Hero", 100, 0);
+        Player player = new Player("Hero", 100, 0); // attackPower diatur 0 karena attackPower sudah diatur di class player
         System.out.println("\nSelamat datang di Game Petualangan!");
-
+        
         boolean gameOver = false;
         while (!gameOver) {
             System.out.println("\nAksi Anda:");
@@ -23,10 +22,8 @@ public class Main {
             System.out.print("Pilih aksi: ");
             int choice = scanner.nextInt();
             if (choice == 1) {
-                // Musuh muncul secara acak
                 Random random = new Random();
-                Enemy enemy = new Enemy("Goblin", random.nextInt(30) + 50, random.nextInt(15) + 20); // random health
-                                                                                                     // and attack power
+                Enemy enemy = new Enemy("Goblin", random.nextInt(30) + 50, random.nextInt(15) + 20); 
                 System.out.println("\nAnda bertemu musuh: " + enemy.getName());
 
                 while (player.getHealth() > 0 && enemy.getHealth() > 0) {
@@ -51,7 +48,9 @@ public class Main {
                     if (player.getHealth() <= 0) {
                         System.out.println("Anda kalah! Permainan berakhir.");
                         gameOver = true;
+                        player.showInventory();
                         player.showLevel();
+                        
 
                     } else if (enemy.getHealth() <= 0) {
                         System.out.println("Anda mengalahkan musuh!");
@@ -64,8 +63,12 @@ public class Main {
             } else if (choice == 3) {
                 System.out.println("\nTerima kasih telah bermain!");
                 gameOver = true;
+                player.showInventory();
+                player.showLevel();  
             }
         }
+        
+
         scanner.close();
     }
 }

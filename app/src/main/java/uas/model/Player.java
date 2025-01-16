@@ -11,7 +11,7 @@ public class Player extends Character {
     private int level = 1;
     private List<Item> inventory = new ArrayList<>();
 
-    // constructor item
+    // constructor player untuk menambahkan item
     public Player(String name, int health, int attackPower) {
         super(name, health, attackPower);
         inventory.add(new Potion());
@@ -85,6 +85,6 @@ public class Player extends Character {
     }
 
     public void showLevel() {
-        System.out.println("level Hero Saat Ini: " + level);
+        System.out.println("level Hero Saat Ini: " + level  + "\n");
     }
 }

@@ -27,8 +27,7 @@ public abstract class Character {
 
     public void takeDamage(int damage) {
         health -= damage;
-        if (health < 0)
-            health = 0;
-    } // method takeDamage ( Mengurangi health karakter berdasarkan damage yang diterima.) 
-    public abstract void attack(Character target); // method attack (method ini digunakan untuk class turunan, untuk menyerang target.)
+    }
+
+    public abstract void attack(Character target);
 }
