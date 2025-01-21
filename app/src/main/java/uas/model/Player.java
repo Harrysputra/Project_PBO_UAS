@@ -71,9 +71,9 @@ public class Player extends Character {
         }
     }
 
-    private void gainXP(int amount) {
-        xp += amount; // Tambah XP ke total
-        if (xp >= 100) { // Cek jika XP lebih dari 100 untuk naik level
+    public void gainXP(int amount) {
+        xp += amount;
+        if (xp >= 100) {
             levelUp();
         }
     }
@@ -82,6 +82,19 @@ public class Player extends Character {
         xp = 0; // Reset XP setelah naik level
         level++; // Naikkan level
         System.out.println("Horee!!! Selamat! " + getName() + " naik ke level " + level + "!");
+    }
+
+    public int getXP() {
+        return xp;
+    }
+
+
+    public int getLevel() {
+        return level;
+    }
+
+    public int getInventorySize() {
+        return inventory.size();
     }
 
     public void showLevel() {
