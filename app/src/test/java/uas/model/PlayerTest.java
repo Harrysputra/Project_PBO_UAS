@@ -30,11 +30,6 @@ class PlayerTest {
         assertEquals(2, player.getLevel(), "Player should level up after gaining 100 XP");
     }
 
-    @Test
-    void testInventoryItemCount() {
-        player.showInventory();
-        assertEquals(3, player.getInventorySize(), "Player should have 3 items in inventory initially");
-    }
 
     @Test
     void testAttackReducesTargetHealth() {

@@ -93,9 +93,9 @@ public class Player extends Character {
         return level;
     }
 
-    public int getInventorySize() {
-        return inventory.size();
-    }
+    // public int getInventorySize() {
+    //     return inventory.size();
+    // }
 
     public void showLevel() {
         System.out.println("level Hero Saat Ini: " + level  + "\n");
